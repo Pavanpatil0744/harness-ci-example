@@ -18,27 +18,23 @@ pipeline:
           execution:
             steps:
               - step:
-                  identifier: npminstall
-                  name: npm_install
+                  type: Run
+                  name: Run
+                  identifier: Run
                   spec:
                     connectorRef: account.harnessImage
                     image: node:16
                     shell: Sh
-                    command: npm install
-                  timeout: ""
-                  type: Run
+                    command: npm test
               - step:
-                  identifier: dockerbuild
-                  name: docker_build
+                  type: BuildAndPushDockerRegistry
+                  name: BuildAndPushDockerRegistry_1
+                  identifier: BuildAndPushDockerRegistry_1
                   spec:
                     connectorRef: account.harnessImage
-                    image: pavan8767 / harness-ci
-                    settings:
-                      dry_run: "true"
-                      repo: hello/world
-                      tags: latest
-                  timeout: ""
-                  type: Plugin
+                    repo: pavan8767 / harness-ci
+                    tags:
+                      - latest
           platform:
             os: Linux
             arch: Amd64
