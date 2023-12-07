@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_Pavanpatil0744_harness_ci_example_1701940576070-push-trigger-input-set
+  identifier: Build_Pavanpatil0744_harness_ci_example_1701940576070pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: pythonci
+  pipeline:
+    identifier: Build_Pavanpatil0744_harness_ci_example_1701940576070
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
