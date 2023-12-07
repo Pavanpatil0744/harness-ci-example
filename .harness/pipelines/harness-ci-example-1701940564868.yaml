@@ -43,19 +43,19 @@ pipeline:
             spec: {}
         type: CI
     - stage:
-        name: deploy-k8s
+        name: deploy-guestbook
         identifier: deployk8s
         description: ""
         type: Deployment
         spec:
           deploymentType: Kubernetes
           service:
-            serviceRef: testharness
+            serviceRef: guestbookdeploy
           execution:
             steps:
               - step:
                   type: K8sRollingDeploy
-                  name: K8sRollingDeploy_1
+                  name: guestbook_rolling_pipeline
                   identifier: K8sRollingDeploy_1
                   spec:
                     skipDryRun: false
@@ -72,10 +72,10 @@ pipeline:
                   spec:
                     pruningEnabled: false
           environment:
-            environmentRef: stage
+            environmentRef: harnessdevenv
             deployToAll: false
             infrastructureDefinitions:
-              - identifier: k8s
+              - identifier: harness_k8sinfra
         tags: {}
         failureStrategies:
           - onFailure:
