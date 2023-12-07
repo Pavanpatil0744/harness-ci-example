@@ -21,6 +21,9 @@ pipeline:
                   identifier: npminstall
                   name: npm_install
                   spec:
+                    connectorRef: account.harnessImage
+                    image: node:16
+                    shell: Sh
                     command: npm install
                   timeout: ""
                   type: Run
