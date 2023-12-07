@@ -25,17 +25,11 @@ pipeline:
                   timeout: ""
                   type: Run
               - step:
-                  identifier: npmtest
-                  name: npm_test
-                  spec:
-                    command: npm run test
-                  timeout: ""
-                  type: Run
-              - step:
                   identifier: dockerbuild
                   name: docker_build
                   spec:
-                    image: plugins/docker
+                    connectorRef: account.harnessImage
+                    image: pavan8767 / harness-ci
                     settings:
                       dry_run: "true"
                       repo: hello/world
@@ -43,9 +37,9 @@ pipeline:
                   timeout: ""
                   type: Plugin
           platform:
-            arch: Amd64
             os: Linux
+            arch: Amd64
           runtime:
-            spec: {}
             type: Cloud
+            spec: {}
         type: CI
