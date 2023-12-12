@@ -4,7 +4,7 @@ pipeline:
   orgIdentifier: default
   projectIdentifier: pythonci
   properties:
-    ci:
+    cicd:
       codebase:
         build: <+input>
         connectorRef: account.Github_OAuth_1701856371806
